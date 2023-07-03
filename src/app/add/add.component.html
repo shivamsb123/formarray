@@ -1,0 +1,199 @@
+<div class="container-fluid">
+    <div class="row" style="background: gray; color:white;">
+        <div class="col-sm-2 col-md-2 p-2">
+            <h2 style="font-size: 29px;" class="mt-2">Add/Update Data</h2>
+        </div>
+        <div class="offset-sm-7 col-sm-3 offset-md-7 col-md-3">
+            <div class="tablesearch d-flex justify-content-end align-items-center p-2">
+                <button class="btn  btn-light m-1"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
+                <button class="btn btn-light m-1" routerLink="/"><i class="fa fa-list" aria-hidden="true"></i></button>
+                <button class="btn  btn-light m-1"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row p-4">
+        <form class="" [formGroup]="saveform" (ngSubmit)="Save()">
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>GST No</label>
+                    <input class="form-control" type="text" formControlName="gst" placeholder="Enter GST No" />
+                    <div class="text-danger" *ngIf="saveform.get('gst')?.hasError('required') && 
+                    saveform.get('gst')?.touched">
+                    GST No is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>PAN No</label>
+                    <input class="form-control" type="text" formControlName="pan" placeholder="Enter PAN No" />
+                    <div class="text-danger" *ngIf="saveform.get('pan')?.hasError('required') && 
+                    saveform.get('pan')?.touched">
+                    PAN No is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Code</label>
+                    <input class="form-control" type="text" formControlName="code" placeholder="Enter Code" />
+                    <div class="text-danger" *ngIf="saveform.get('code')?.hasError('required') && 
+                    saveform.get('code')?.touched">
+                    Code is required</div>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Name</label>
+                    <input class="form-control" type="text" formControlName="name" placeholder="Enter Name" />
+                    <div class="text-danger" *ngIf="saveform.get('name')?.hasError('required') && 
+                    saveform.get('name')?.touched">
+                        Name is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Address</label>
+                    <input class="form-control" type="text" formControlName="address" placeholder="Enter Address" />
+                    <div class="text-danger" *ngIf="saveform.get('address')?.hasError('required') && 
+                    saveform.get('address')?.touched">
+                        Address is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Pincode</label>
+                    <input class="form-control" type="text" formControlName="pincode" placeholder="Enter Pincode" />
+                    <div class="text-danger" *ngIf="saveform.get('pincode')?.hasError('required') && 
+                    saveform.get('pincode')?.touched">
+                    Pincode is required</div>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Country</label>
+                    <input class="form-control" type="text" formControlName="country" placeholder="Enter Country" />
+                    <div class="text-danger" *ngIf="saveform.get('country')?.hasError('required') && 
+                    saveform.get('country')?.touched">
+                    Country is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>State</label>
+                    <input class="form-control" type="text" formControlName="state" placeholder="Enter State" />
+                    <div class="text-danger" *ngIf="saveform.get('state')?.hasError('required') && 
+                    saveform.get('state')?.touched">
+                    State is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>City</label>
+                    <input class="form-control" type="text" formControlName="city" placeholder="Enter City" />
+                    <div class="text-danger" *ngIf="saveform.get('city')?.hasError('required') && 
+                    saveform.get('city')?.touched">
+                    City is required</div>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Mobile</label>
+                    <input class="form-control" type="text" formControlName="mobile" placeholder="Enter Mobile" maxlength="10" (keypress)="numberOnly($event)" />
+                    <div class="text-danger" *ngIf="saveform.get('mobile')?.hasError('required') && 
+                    saveform.get('mobile')?.touched">
+                    Mobile is required</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Email</label>
+                    <input class="form-control" type="email" formControlName="email" placeholder="Enter Email" />
+                    <div class="text-danger" *ngIf="saveform.get('email')?.hasError('required') && 
+                    saveform.get('email')?.touched">
+                    Email is required</div>
+                    <div class="text-danger" *ngIf="saveform.get('email')?.hasError('email') && 
+                    saveform.get('email')?.touched">
+                    Enter Valid Email</div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Latitude</label>
+                    <input class="form-control" type="text" formControlName="latitude" placeholder="Enter Latitude" />
+                    <div class="text-danger" *ngIf="saveform.get('latitude')?.hasError('required') && 
+                    saveform.get('latitude')?.touched">
+                    Latitude is required</div>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-4 ">
+                    <label>Longitude</label>
+                    <input class="form-control" type="text" formControlName="longitude" placeholder="Enter Longitude" />
+                    <div class="text-danger" *ngIf="saveform.get('longitude')?.hasError('required') && 
+                    saveform.get('longitude')?.touched">
+                    Longitude is required</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 p-2" style="background: gray; color:white;">
+                    <i class="fa fa-paperclip pr-3" style="font-size: 20px;" aria-hidden="true"></i><span
+                        style="font-size: 20px;"> Attachment</span>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-sm-12 d-flex">
+                    <div class="offset-sm-5 col-sm-5 ">
+                        <p style="font-weight: 600; font-size: 18px;;"> ..:: Contact Person Details ::.. </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary" (click)="addPerson()">Add Person</button>
+                    </div>
+                </div>
+                <div formArrayName="ContactPersonDetails">
+                    <div *ngFor="let Cpd of persons.controls let i = index" [formGroupName]="i" class="row m-1 p-2"
+                        style="border:1px solid black;">
+                        <div class="col-sm-12">
+                            <p class="p-2" style="font-weight: 600;">Contact Person Details {{i+1}}</p>
+                        </div>
+                        <div class="col-sm-4 ">
+                            <label>Name</label>
+                            <input class="form-control" type="text" formControlName="PersonName" placeholder="Name" />
+                            <div class="text-danger" *ngIf="Cpd.get('PersonName')?.hasError('required') && 
+                            Cpd.get('PersonName')?.touched">
+                    Name is required</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Mobile</label>
+                            <input class="form-control" type="text" maxlength="10" formControlName="PersonMobile"
+                                placeholder="Mobile" (keypress)="numberOnly($event)" />
+                            <div class="text-danger" *ngIf="Cpd.get('PersonMobile')?.hasError('required') && 
+                            Cpd.get('PersonMobile')?.touched">
+                    Mobile is required</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Email</label>
+                            <input class="form-control" type="text" formControlName="PersonEmail" placeholder="Email" />
+                            <div class="text-danger" *ngIf="Cpd.get('PersonEmail')?.hasError('required') && 
+                            Cpd.get('PersonEmail')?.touched">
+                        Email is required</div>
+                            <div class="text-danger" *ngIf="Cpd.get('PersonEmail')?.hasError('email') && 
+                            Cpd.get('PersonEmail')?.touched">
+                        Enter Valid Email</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Department</label>
+                            <input class="form-control" type="text" formControlName="Department"
+                                placeholder="Department" />
+                                <div class="text-danger" *ngIf="Cpd.get('Department')?.hasError('required') && 
+                                Cpd.get('Department')?.touched">
+                    Department is required</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Designation</label>
+                            <input class="form-control" type="text" formControlName="Designation"
+                                placeholder="Designation" />
+                                <div class="text-danger" *ngIf="Cpd.get('Designation')?.hasError('required') && 
+                                Cpd.get('Designation')?.touched">
+                    Designation is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="from-group" id="formsub">
+                <button type="submit" class="btn btn-success pr-2"><i class="fa p-1 fa-check" aria-hidden="true"></i>SAVE</button>
+                <button type="button" class="btn btn-danger"><i class="fa p-1 fa-times-circle" aria-hidden="true"></i>CANCEL</button>
+            </div>
+        </form>
+    </div>
+</div>
